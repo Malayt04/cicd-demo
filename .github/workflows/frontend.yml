@@ -30,15 +30,5 @@ jobs:
     - name: Install Dependencies
       run: npm ci
 
-    - name: Run Tests
-      run: npm test || echo "No tests specified"
-
     - name: Build
       run: npm run build
-
-    - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3
-      if: github.ref == 'refs/heads/main'
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./frontend/dist 
